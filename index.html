@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day Optimizer</title>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link rel="icon" href="favicon.ico"/>
+</head>
+<body>
+  <div id="container">
+    <div id="content">
+      <div id="top-buttons">
+        <button type="button" class="button-circular"><img src="icons/settings.svg"/></button>
+        <button type="button" class="button-circular"><img src="icons/stats.svg"/></button>
+        <button type="button" class="button-circular"><img src="icons/save.svg"/></button>
+        <button type="button" class="button-circular"><img src="icons/load.svg"/></button>
+        <button type="button" class="button-circular"><img src="icons/info.svg"/></button>
+      </div>
+      <div id="header">
+        <h1>Routine Helper</h1>
+      </div>
+      <br>
+      <table id="day-table">
+      <thead>
+      </thead>
+      <tbody id="day-table-body">
+        <tr id="heading-row">
+          <th id="th_start">Start</th>
+          <th id="th_end">End</th>
+          <th id="th_duration">Duration</th>
+          <th id="th_compare">Compare</th>
+          <th id="th_label">Label</th>
+        </tr>
+        <tr id="entry-row">
+          <form id="entry-form" onsubmit="return false;">
+          <td><input id="entry-start" class="entry-time" type="text" placeholder=""/><input id="entry-start-autofill" class="button-circular" type="button" value="&#9201;" tabindex=-1 /></td>
+          <td><input id="entry-stop" class="entry-time" type="text"/><input id="entry-stop-autofill" class="button-circular" type="button" value="&#9201;" tabindex=-1/></td>
+          <td>--</td>
+          <td>--</td>
+          <td><input id="entry-label" type="text" placeholder="A descriptive label for your log entry. For example, jogging." /><input id="button-submit-log-entry" type="submit" class="button-circular" value="+"/></td>
+          </form>
+        </tr>
+        <!-- Template for a row
+        <tr>
+          <td>11pm</td>
+          <td>2pm</td>
+          <td>3h</td>
+          <td>+0:00</td>
+          <td>activity label</td>
+        </tr>
+        -->
+      </tbody>
+      </table>
+      <button type="button" id="top-button" class="button-circular"><img src="icons/up-arrow.svg" /></button>
+    </div>
+    <div id="footer">
+      <p>Design and code made by Je Hyun Kim &bull; Icons made by Freepik from www.flaticon.com</p>
+    </div>
+  </div>
+  <script type="text/javascript" src="record_module.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "esversion": 6,
+  "browser": true,
+  "globals": {
+        "record_module": false,
+        "$": false,
+        "jQuery" : false
+  }
+}
