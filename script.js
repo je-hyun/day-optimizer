@@ -11,6 +11,7 @@
 /* globals console */
 //TODO: add functionality for settings, stats, download, and upload.
 //TODO: rearrange html and adjust createRow
+//TODO: add input for duration which changes end time.
 "use strict";
 // the only salvageable code is the document ready and the timer stuff atm.
 // ~~~~~~ Document Initialization ~~~~~~
@@ -138,26 +139,26 @@ function createRow(newLogEntry) {
   newRow = document.createElement("tr");
   newRow.class = "log-entry";
   // Create each data entry element and add to the newRow
-  // start
-  newTd = document.createElement("td");
-  newTd.classList.add("start-cell");
-  newRow.appendChild(newTd);
-  newTd.innerHTML = newLogEntry.start;
-  // stop
-  newTd = document.createElement("td");
-  newTd.classList.add("stop-cell");
-  newRow.appendChild(newTd);
-  newTd.innerHTML = newLogEntry.stop;
-  // duration
-  newTd = document.createElement("td");
-  newTd.classList.add("duration-cell");
-  newRow.appendChild(newTd);
-  newTd.innerHTML = newLogEntry.duration.toString().slice(1);
   // compare
   newTd = document.createElement("td");
   newTd.classList.add("compare-cell");
   newRow.appendChild(newTd);
   newTd.innerHTML = newLogEntry.compare;
+  // duration
+  newTd = document.createElement("td");
+  newTd.classList.add("duration-cell");
+  newRow.appendChild(newTd);
+  newTd.innerHTML = newLogEntry.duration.toString().slice(1);
+  // start
+  newTd = document.createElement("td");
+  newTd.classList.add("start-cell");
+  newRow.appendChild(newTd);
+  newTd.innerHTML = newLogEntry.start + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-";
+  // stop
+  newTd = document.createElement("td");
+  newTd.classList.add("stop-cell");
+  newRow.appendChild(newTd);
+  newTd.innerHTML = newLogEntry.stop;
   // label
   newTd = document.createElement("td");
   newTd.classList.add("label-cell");

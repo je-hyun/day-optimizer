@@ -174,7 +174,7 @@ Record.prototype.add_entry = function(new_entry) {
   // label default: (not implt yet. Should be top of "activity stack")
   if(entry.label == null || entry.label === "") {
     //TODO: change the default to the top lbl of schedule's stack.
-    entry.label = "---";
+    entry.label = "~";
   }
   entry.duration = Time.compare(entry.start,entry.stop);
   this.entries.push(entry);

@@ -28,18 +28,20 @@
       </thead>
       <tbody id="day-table-body">
         <tr id="heading-row">
+          <th id="th_compare">Compare</th>
+          <th id="th_duration">Duration</th>
           <th id="th_start">Start</th>
           <th id="th_end">End</th>
-          <th id="th_duration">Duration</th>
-          <th id="th_compare">Compare</th>
+
+
           <th id="th_label">Label</th>
         </tr>
         <tr id="entry-row">
+          <td>--</td>
+          <td>--</td>
           <form id="entry-form" onsubmit="return false;">
           <td><input id="entry-start" class="entry-time" type="text" placeholder=""/><input id="entry-start-autofill" class="button-circular" type="button" value="&#9201;" tabindex=-1 /></td>
           <td><input id="entry-stop" class="entry-time" type="text"/><input id="entry-stop-autofill" class="button-circular" type="button" value="&#9201;" tabindex=-1/></td>
-          <td>--</td>
-          <td>--</td>
           <td><input id="entry-label" type="text" placeholder="A descriptive label for your log entry. For example, jogging." /><input id="button-submit-log-entry" type="submit" class="button-circular" value="+"/></td>
           </form>
         </tr>
