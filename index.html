@@ -32,28 +32,32 @@
           <th id="th_duration">Duration</th>
           <th id="th_start">Start</th>
           <th id="th_end">End</th>
-
-
           <th id="th_label">Label</th>
         </tr>
         <tr id="entry-row">
-          <td>--</td>
-          <td>--</td>
+          <td></td>
           <form id="entry-form" onsubmit="return false;">
-          <td><input id="entry-start" class="entry-time" type="text" placeholder=""/><input id="entry-start-autofill" class="button-circular" type="button" value="&#9201;" tabindex=-1 /></td>
-          <td><input id="entry-stop" class="entry-time" type="text"/><input id="entry-stop-autofill" class="button-circular" type="button" value="&#9201;" tabindex=-1/></td>
-          <td><input id="entry-label" type="text" placeholder="A descriptive label for your log entry. For example, jogging." /><input id="button-submit-log-entry" type="submit" class="button-circular" value="+"/></td>
+            <td>
+              <input id="entry-duration" class="entry-time" type="text" placeholder="0h0m"/>
+              <div class="spinner">
+                <input id="spin-duration-up" type="button" value="+5" tabindex=-1/>
+                <input id="spin-duration-down" type="button" value="-5" tabindex=-1/>
+              </div>
+            </td>
+            <td>
+              <input id="entry-start" class="entry-time" type="text" placeholder=""/>
+              <input id="entry-start-autofill" class="button-circular" type="button" value="&#9201;" tabindex=-1 />
+            </td>
+            <td>
+              <input id="entry-stop" class="entry-time" type="text"/>
+              <input id="entry-stop-autofill" class="button-circular" type="button" value="&#9201;" tabindex=-1/>
+            </td>
+            <td>
+              <input id="entry-label" type="text" placeholder="A descriptive label for your log entry. For example, jogging." />
+              <input id="button-submit-log-entry" type="submit" class="button-circular" value="+"/>
+            </td>
           </form>
         </tr>
-        <!-- Template for a row
-        <tr>
-          <td>11pm</td>
-          <td>2pm</td>
-          <td>3h</td>
-          <td>+0:00</td>
-          <td>activity label</td>
-        </tr>
-        -->
       </tbody>
       </table>
       <button type="button" id="top-button" class="button-circular"><img src="icons/up-arrow.svg" /></button>

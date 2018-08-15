@@ -6,6 +6,31 @@
 function Duration(min) {
   this.min = min;
 }
+/**
+ * Creates a duration object from string.
+ * @param  {string} str A string representation of duration (eg 1h30m)
+ * @return {Duration}     A Duration object with the correct mins.
+ */
+function parseDuration(str) {
+  var sign,h,m,myStr,matchArray,durFormat;
+  durFormat = /^([+-])?(?:(\d+)h)?(?:(\d+)m)?$/;
+  myStr = str.replace(/ /g,""); //remove whitespaces
+  // now, str should be in format {number}h{number}m.
+  // Check if valid format
+  if (!durFormat.test(myStr)) {
+    throw RangeError("String \"" + str + "\" does not match duration format {number}h{number}m");
+  }
+  // Store the matching hour and min groups into h and m.
+  matchArray = myStr.match(durFormat);
+  if (matchArray[1] == null || matchArray[1] == "+") {
+    sign = 1;
+  } else {
+    sign = -1;
+  }
+  h = matchArray[2] != null ? parseInt(matchArray[2]) : 0;
+  m = matchArray[3] != null ? parseInt(matchArray[3]) : 0;
+  return new Duration(sign * (h*60+m));
+}
 /** @type {Boolean} simplifies formatting output by the toString method. */
 Duration.prototype.simple = false;
 Duration.prototype.toString = function() {
@@ -25,6 +50,9 @@ Duration.prototype.toString = function() {
     strReturn = m > 9 ? `${h}h${m}m` : `${h}h0${m}m`;
   }
   return sign + strReturn;
+};
+Duration.prototype.addDuration = function(durationObject) {
+  return new Duration((this.min + durationObject.min) % (24*60));
 };
 /**
  * Get the difference between two durations.
@@ -53,7 +81,7 @@ function Time(min) {
  * @param       {string} str The string to interpret as a Time object.
  * @returns     {Time} A time object from string representation.
  */
-function strToTime(str) {
+function parseTime(str) {
   // strip all whitespaces
   var s, m, h, ampm, f24h, f12h, f12hSimple, matchArray;
   if (str == null) {
@@ -134,6 +162,9 @@ Time.compare = function(a,b,signed=false) {
       return new Duration(0);
     }
   }
+};
+Time.prototype.addDuration = function(durationObject) {
+  return new Time((this.min + durationObject.min) % (24*60));
 };
 /**
  * Holds data for a single activity's log entry, to be used in a record.

@@ -18,7 +18,8 @@ body {
   padding-bottom:.5em;
 }
 #container {
-  margin:1em;
+  /*Top, right, bottom,left (clockwise), or v,h or top,h,bot*/
+  margin: 1.5em 10%
 }
 table {
   border-collapse:collapse;
@@ -125,7 +126,7 @@ tr:last-child td:last-of-type {
   width:6em;
 }
 #th_duration {
-  width:4em;
+  width:6em;
 }
 #th_compare {
   width:4em;
@@ -160,15 +161,16 @@ tr:last-child td:last-of-type {
   border-radius: 50%;
   color: #5c6f77;
   border-color: transparent;
-  background-color:#f4f4f4;
+  background-color:#e3e3e3;
   font-size:1em;
   cursor: pointer;
-  transition: .3s;
   outline:none;
 }
-.button-circular:hover {
+.button-circular:hover, .spinner input[type="button"]:hover{
+  transition: .3s;
   background-color:#ffff66;
 }
+
 input[type=text] {
     padding: .35em .5em;
     border: 1px solid #5c6f77;
@@ -204,4 +206,18 @@ input[type=text]:focus:-ms-input-placeholder { color:transparent; }
   float:right;
   margin-right: .5em;
   font-size: .5em;
+}
+#entry-duration{
+  width:5em;
+}
+.spinner input[type="button"]{
+  display: block;
+  font-size: .7em;
+  padding: 0px;
+  width: 2em;
+  height: 1.2em;
+  border: 1px solid #5c6f77;
+  background-color: #e3e3e3;
+  outline: none;
+  color: #5c6f77;
 }
